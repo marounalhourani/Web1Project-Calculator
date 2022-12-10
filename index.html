@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>
+		Scientific Calculator using HTML, CSS and Js
+	</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+</head>
+
+<body>
+    <!-- title -->
+	<div class = title style="margin: auto;" >
+        web 1 classs: 
+        Maroun - Maged - Mina
+    </div>
+	
+	<form name = "calc">
+		
+	<table id = "calc" border = 2 style="margin: auto;">
+
+    <!-- table row 1 containing input fiel from form  -->
+	<tr>
+		<td colspan=5><input id="btn" name="display"
+			onkeypress="return event.charCode >= 48
+			&& event.charCode <= 57" type="text">
+		</td>
+	</tr>
+	
+    <!-- //table row 2 containing: 1 - 2 - 3 - c - <= - = -->
+	<tr>
+        <!-- // first operation on the form, add string to input field in the form -->
+		<td>
+            <!-- //add button, onclick is a javascript function, access calc (form name, and execute the operatio
+            //on the form) -->
+            <input id="btn" type="button" value="1"
+				OnClick="calc.display.value+='1'">
+		</td>
+        <!-- second operation on the form, add string to input field in the form -->
+		<td><input id="btn" type="button" value="2"
+				OnClick="calc.display.value+='2'">
+		</td>
+		<!-- //3rd operation -->
+		<td><input id="btn" type="button" value="3"
+				OnClick="calc.display.value+='3'">
+		</td>
+		<!-- //4th operation , "Cancel"form display back again to null -->
+		<td><input id="btn" type="button" value="C"
+				OnClick="calc.display.value=''">
+		</td>
+        <!-- //5th operation, execute function to backward delete, see function in JS -->
+		<td><input id="btn" type="button" value="<-"
+				OnClick="backspace(this.form)">
+		</td>
+        <!-- //6th operation, calculate - in javascript file -->
+		<td><input id="btn" type="button" value="="
+				OnClick="calculate(this.form)">
+		</td>
+	</tr>
+	
+    <!-- //table row 3 containing 4 - 5 - 6 - "-" - % - cos -->
+	<tr>
+
+        <!-- //operation 7 -->
+		<td><input id="btn" type="button" value="4"
+				OnClick="calc.display.value+='4'">
+		</td>
+
+		<!-- //operation 8 -->
+		<td><input id="btn" type="button" value="5"
+				OnClick="calc.display.value+='5'">
+		</td>
+
+		<!-- //operation 9 -->
+		<td><input id="btn" type="button" value="6"
+				OnClick="calc.display.value+='6'">
+		</td>
+
+		<!-- //operation 10 minus sign -->
+		<td><input id="btn" type="button" value="-"
+				OnClick="calc.display.value='-'">
+		</td>
+		
+        <!-- //opetation 11, percentage, see function in JS - divide number by 100, /100 -->
+		<td><input id="btn" type="button" value="%"
+				OnClick="calc.display.value+='%'">
+		</td>
+		
+        <!-- //operation 12, MATH cos - math library in JS instead of using serie addition to calculate cos(x) -->
+		<td><input id="btn" type="button" value="cos"
+				OnClick="calc.display.value='Math.cos('">
+		</td>
+	</tr>
+	
+    <!-- //raw 4, include 7 - 8 - 9 - factorial - multiplication - sin -->
+	<tr>
+        <!-- //operation 13 -->
+		<td><input id="btn" type="button" value="7"
+				OnClick="calc.display.value+='7'">
+		</td>
+		
+        <!-- //operation 14 -->
+		<td><input id="btn" type="button" value="8"
+				OnClick="calc.display.value+='8'">
+		</td>
+		
+        <!-- //operation 15 -->
+		<td><input id="btn" type="button" value="9"
+				OnClick="calc.display.value+='9'">
+		</td>
+		
+        <!-- //operarion 16 - multiplication -->
+		<td><input id="btn" type="button" value="*"
+				OnClick="calc.display.value+='*'">
+		</td>
+		
+        <!-- //operation 17- factorial -- see function in JS -->
+		<td><input id="btn" type="button" value="n!"
+				OnClick="calc.display.value+='!'">
+		</td>
+		
+        <!-- //operation 18 - sin - math library -->
+		<td><input id="btn" type="button" value="sin"
+				OnClick="calc.display.value='Math.sin('">
+		</td>
+	</tr>
+	
+    <!-- // raw 5 include .decimal - 0 - , - , + , / , tan -->
+	<tr>
+        <!-- //operation 19 -->
+		<td><input id="btn" type="button" value="."
+				OnClick="calc.display.value+='.'">
+		</td>
+		
+        <!-- //operation 20 -->
+		<td><input id="btn" type="button" value="0"
+				OnClick="calc.display.value+='0'">
+		</td>
+		
+        <!-- //operation 21 -->
+		<td><input id="btn" type="button" value=","
+				OnClick="calc.display.value+=','">
+		</td>
+		
+        <!-- //operation 22 -->
+		<td><input id="btn" type="button" value="+"
+				OnClick="calc.display.value+='+'">
+		</td>
+		
+        <!-- //operation 23 - divide -->
+		<td><input id="btn" type="button" value="/"
+				OnClick="calc.display.value+='/'">
+		</td>
+		
+        <!-- //operation 24 - tang -->
+		<td><input id="btn" type="button" value="tan"
+				OnClick="calc.display.value='Math.tan('">
+		</td>
+	</tr>
+	
+	<tr>
+		<td><input id="btn" type="button" value="E"
+				OnClick="calc.display.value+='Math.E'">
+		</td>
+		
+		<td><input id="btn" type="button" value="pi"
+				OnClick="calc.display.value+='Math.PI'">
+		</td>
+		
+		<td><input id="btn" type="button" value="^"
+				OnClick="calc.display.value+='Math.pow('">
+		</td>
+		
+		<td><input id="btn" type="button" value="("
+				OnClick="calc.display.value+='('">
+		</td>
+		
+		<td><input id="btn" type="button" value=")"
+				OnClick="calc.display.value+=')'">
+		</td>
+		
+		<td><input id="btn" type="button" value="log"
+				OnClick="calc.display.value='Math.log('">
+		</td>
+	</tr>
+	
+	<tr>
+		<td><input id="btn" type="button" value="sqrt"
+				OnClick="calc.display.value+='Math.sqrt('">
+		</td>
+		
+		<td><input id="btn" type="button" value="ln2"
+				OnClick="calc.display.value+='Math.LN2'">
+		</td>
+		
+		<td><input id="btn" type="button" value="ln10"
+				OnClick="calc.display.value+='Math.Log10'">
+		</td>
+		
+		<td><input id="btn" type="button" value="l2e"
+				OnClick="calc.display.value+='Math.LOG2E'">
+		</td>
+		
+		<td><input id="btn" type="button" value="l10e"
+				OnClick="calc.display.value+='Math.log10'">
+		</td>
+		
+		<td><input id="btn" type="button" value="exp"
+				OnClick="calc.display.value='Math.exp('">
+		</td>
+	</tr>
+	</table>
+	</form>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>							
